@@ -3,24 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Lezione sul CSSOM</title>
   </head>
   <body>
-    <h1>CSS OM</h1>
+    <h2>Introduzione al CSSOM (CSS Object Model)</h2>
+
     <p>
-      "CSS OM" è un'abbreviazione per "CSS Object Model", che è una
-      rappresentazione programmatica dei CSS all'interno di un documento web. Il
-      CSS OM consente agli sviluppatori di accedere e manipolare le regole CSS
-      di un documento utilizzando JavaScript o altri linguaggi di scripting.
-      Attraverso il CSS OM, è possibile ottenere informazioni sulle regole CSS
-      applicate agli elementi del documento, modificare dinamicamente lo stile
-      degli elementi, aggiungere o rimuovere regole CSS e molto altro ancora.
-      Questa capacità di manipolare dinamicamente lo stile di un documento è
-      fondamentale per creare esperienze web interattive e reattive. Il CSS OM
-      lavora a fianco del DOM (Document Object Model), che rappresenta la
-      struttura del documento HTML o XML, per fornire agli sviluppatori un
-      controllo completo sullo stile e sul comportamento degli elementi della
-      pagina web.
+      Il CSS Object Model (CSSOM) è una rappresentazione strutturata dei fogli
+      di stile CSS di una pagina web, che permette di accedere, manipolare e
+      modificare lo stile di elementi HTML tramite JavaScript. In questa
+      lezione, impareremo i concetti fondamentali del CSSOM.
+    </p>
+
+    <h3>Cos'è il CSSOM?</h3>
+
+    <p>
+      Il CSSOM è una rappresentazione del CSS di una pagina web come una
+      struttura ad albero di oggetti JavaScript. Questa struttura riflette la
+      gerarchia e l'ereditarietà dei selettori CSS e delle regole di stile
+      applicate a una pagina web.
+    </p>
+
+    <h3>Struttura del CSSOM</h3>
+
+    <p>
+      Il CSSOM rappresenta i fogli di stile CSS di una pagina web come una serie
+      di oggetti JavaScript, ognuno dei quali rappresenta una regola CSS. Questi
+      oggetti possono essere navigati e manipolati utilizzando JavaScript.
+    </p>
+
+    <p>
+      Ecco un esempio di come si può accedere al CSSOM di una pagina web
+      utilizzando JavaScript:
+    </p>
+
+    <pre><code>&lt;script&gt;
+// Accedere al foglio di stile CSS
+var styleSheet = document.styleSheets[0];
+
+// Ottenere tutte le regole CSS
+var cssRules = styleSheet.cssRules || styleSheet.rules;
+
+// Ciclare attraverso le regole CSS
+for (var i = 0; i &lt; cssRules.length; i++) {
+  var rule = cssRules[i];
+  console.log(rule.selectorText); // Mostra il selettore CSS della regola
+  console.log(rule.style); // Mostra lo stile CSS della regola
+}
+&lt;/script&gt;
+</code></pre>
+
+    <h3>Manipolazione del CSSOM con JavaScript</h3>
+
+    <p>
+      Il CSSOM può essere utilizzato per aggiungere, rimuovere o modificare le
+      regole di stile CSS di una pagina web utilizzando JavaScript. Ecco un
+      esempio di come si può modificare dinamicamente lo stile di un elemento
+      HTML utilizzando il CSSOM:
+    </p>
+
+    <pre><code>&lt;script&gt;
+// Accedere al foglio di stile CSS
+var styleSheet = document.styleSheets[0];
+
+// Aggiungere una nuova regola CSS
+styleSheet.insertRule("body { background-color: lightblue; }", 0);
+&lt;/script&gt;
+</code></pre>
+
+    <p>
+      In questo esempio, viene aggiunta una nuova regola CSS che imposta il
+      colore di sfondo del corpo della pagina su "lightblue".
+    </p>
+
+    <h3>Conclusioni</h3>
+
+    <p>
+      Il CSSOM è uno strumento potente che permette agli sviluppatori web di
+      accedere e manipolare dinamicamente lo stile di una pagina web utilizzando
+      JavaScript. Con una comprensione approfondita del CSSOM, è possibile
+      creare esperienze web altamente personalizzate e interattive.
+    </p>
+
+    <p>
+      Questa lezione ti ha introdotto ai concetti fondamentali del CSSOM e ha
+      mostrato come accedere e manipolare il CSS di una pagina web utilizzando
+      JavaScript. Con la pratica, potrai diventare più abile nell'utilizzo del
+      CSSOM per creare pagine web dinamiche e accattivanti.
     </p>
   </body>
 </html>
