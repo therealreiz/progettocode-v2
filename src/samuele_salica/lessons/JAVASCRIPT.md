@@ -549,6 +549,146 @@ In questo esempio:
 
 Questa è una tecnica comune per simulare l'incapsulamento dei metodi privati in JavaScript. Tuttavia, è importante notare che questi metodi non sono veramente privati; possono essere comunque acceduti tramite il meccanismo delle chiusure se si conosce il loro nome. Ma, questo approccio aiuta a nascondere i metodi che dovrebbero essere considerati come "privati" e fornisce un'interfaccia controllata per accedere ai dati e ai metodi dell'oggetto.
 
+# Programmazione Orientata agli Oggetti (OOP)
+
+La **Programmazione Orientata agli Oggetti (OOP)** è un paradigma di programmazione che si basa sul concetto di "oggetti". Gli oggetti possono contenere dati, sotto forma di attributi o proprietà, e codice, sotto forma di metodi. Questo approccio consente di organizzare il codice in modo più modulare, facilitando la gestione e la manutenzione del software.
+
+## Concetti Fondamentali
+
+### 1. Classe
+
+Una classe è un modello che definisce gli attributi e i metodi di un oggetto. Gli oggetti sono istanze di una classe.
+
+```javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+}
 ```
 
+### 2. Oggetto (istanza)
+
+Un oggetto è un'istanza di una classe. Ogni oggetto ha attributi e metodi definiti dalla classe.
+
+```javascript
+// Definizione di una classe
+
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+}
+
+// Creazione di un'istanza(oggetto) della classe Persona
+const persona1 = new Persona('Samuele', 'Salica', '26');
 ```
+
+### 3. Attributo
+
+Un attributo è una variabile all'interno di una classe. Ogni oggetto ha i propri valori per gli attributi della classe.
+
+```Javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name; // attributo nome (non this)
+    this.surname = surname; // attributo cognome
+    this.age = age; // attributo età
+  }
+}
+```
+
+### 4. Metodo
+
+Un metodo è una funzione definita all'interno di una classe e opera sugli oggetti della classe.
+
+```javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+  // Metodo
+  presentazione() {
+    return `Ciao, mi chiamo ${this.name} ${this.surname} e ho ${this.age} anni.`;
+  }
+}
+```
+
+### 5. Incapsulamento
+
+L'incapsulamento è il concetto di nascondere alcuni dettagli di implementazione di un oggetto e rendere accessibili solo i metodi o gli attributi necessari.
+
+```javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.#name = name;
+    this.#surname = surname;
+    this.#age = age;
+  }
+}
+// Con il simbolo # rendiamo gli attributi "name, surname, age" privati
+```
+
+### 6. Ereditarietà
+
+L'ereditarietà è un concetto in cui una classe (sottoclasse) eredita attributi e metodi da un'altra classe (superclasse).
+
+```javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+}
+// Con la parola chiave "extends" ereditiamo gli attributi della classe Persona
+class Persona1 extends Persona {
+  constructor(name, surname, age) {
+    super(name, surname, age); // La parola chiave "super" dichiara il costruttore della classe madre
+    this.nickName = nickname;
+  }
+}
+```
+
+### 7. Polimorfismo
+
+Il polimorfismo è il concetto che oggetti di classi diverse possono essere trattati allo stesso modo.
+
+```javascript
+class Persona {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+  presentazione() {
+    return `Ciao, mi chiamo ${this.name} ${this.surname} e ho ${this.age} anni.`;
+  }
+}
+
+class Persona1 extends Persona {
+  constructor(name, surname, age) {
+    super(name, surname, age);
+    this.nickName = nickname;
+  }
+  presentazione() {
+    return `Ciao a tutti`; // Il metodo "presentazione" dentro la classe "Persona1" sovrascriverà il metodo "presentazione" della superclasse "Persona"
+  }
+}
+```
+
+## Vantaggi della Programmazione Orientata agli Oggetti
+
+- **Modularità**: Le classi rendono il codice più modulare e organizzato.
+- **Riusabilità del codice**: È possibile riutilizzare classi esistenti per creare nuove classi.
+- **Incapsulamento**: Nascondere dettagli di implementazione rende il codice più sicuro e manutenibile.
+- **Ereditarietà**: Permette di estendere le funzionalità di una classe esistente.
+- **Polimorfismo**: Gli oggetti di classi diverse possono essere trattati allo stesso modo.
+
+La Programmazione Orientata agli Oggetti è uno strumento potente che consente di scrivere codice più chiaro, modulare e facile da gestire.
